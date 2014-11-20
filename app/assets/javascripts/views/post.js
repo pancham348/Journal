@@ -20,6 +20,7 @@ Journal.Views.Posts = Backbone.View.extend({
     var renderedContent = this.template({
       posts: this.collection
     });
+    
     this.$el.html(renderedContent);
     return this;
   },

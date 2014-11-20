@@ -8,6 +8,8 @@ Journal.Routers.PostRouter = Backbone.Router.extend({
   
   initialize: function () {
     this.$el = $("#content-div");
+    this.$side = $("#sidebar")
+    //$("#sidebar").html(this.postsIndex());
   },
   
   postsIndex: function () {
@@ -16,6 +18,7 @@ Journal.Routers.PostRouter = Backbone.Router.extend({
       collection: Journal.posts
     });
     this.$el.html(newView.$el);
+    this.$side.html(newView.$el);
     Journal.posts.fetch();
   },
   
@@ -25,9 +28,14 @@ Journal.Routers.PostRouter = Backbone.Router.extend({
     var postView = new Journal.Views.Post({
       model: post
     })
+    
+    // var indexView = new Journal.Views.Posts({
+//       collection: Journal.posts
+//     });
     //postView.render();
     // debugger
     this.$el.html(postView.$el);
+    
   },
   
   postEdit: function (id) {
