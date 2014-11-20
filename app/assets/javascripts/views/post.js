@@ -63,7 +63,7 @@ Journal.Views.PostForm = Backbone.View.extend({
   initialize: function () {
     this.listenTo(
       this.model,
-      'sync',
+      'sync remove change:title reset',
       this.render
     );
   },
@@ -77,13 +77,16 @@ Journal.Views.PostForm = Backbone.View.extend({
   },
   
   editPost: function(event) {
-    var id = $(event.currentTarget).data("id");
+    var id = this.model.id;
     var post = Journal.posts.get(id);
-    var formData = $(this).serializeJSON();
-    
+    var formData = $(event.target).serializeJSON()
+    //debugger;
     this.model.save(formData, {
       success: function () {
-        Backbone.history.navigate('...')
+        Backbone.history.navigate("", {trigger: true})
+      }
+      errors: function(){
+        
       }
     });
   }
