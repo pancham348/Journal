@@ -1,0 +1,16 @@
+<form id="edit">
+
+<lablel for="post_title">Title
+  <input type="text" 
+    name="post[title]" 
+    value="<%= post.get("title")%>" id="post_title">
+</label><br>
+<lablel for="body">
+  Body
+  <textarea 
+  class="body" 
+  name="post[body]"><%= post.get("body")%></textarea>
+</label><br>
+
+<input type="submit" value="Edit" >
+</form>

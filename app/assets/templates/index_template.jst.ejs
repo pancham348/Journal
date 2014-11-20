@@ -1,0 +1,6 @@
+<ul>
+<% posts.each( function (post) { %>
+  <li><%=post.get("title")%></li> 
+  <button data-id="<%=post.get("id")%>" class="delete-post">delete</button>
+<% }) %>
+</ul>
