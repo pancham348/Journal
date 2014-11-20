@@ -2,7 +2,8 @@ Journal.Routers.PostRouter = Backbone.Router.extend({
   routes: {
     "": "postsIndex",
     "posts/:id": "postsShow",
-    "posts/:id/edit" : "postEdit"
+    "posts/:id/edit" : "postEdit",
+    "posts" : "postNew"
   },
   
   initialize: function () {
@@ -35,5 +36,13 @@ Journal.Routers.PostRouter = Backbone.Router.extend({
       model: post
     });
     this.$el.html(editView.render().$el);
+  },
+  
+  postNew: function () {
+    var post = new Journal.Models.Post();
+    var newView = new Journal.Views.PostForm({
+      model: post
+    });
+    this.$el.html(newView.render().$el);
   }
 })

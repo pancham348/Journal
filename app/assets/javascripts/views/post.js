@@ -85,9 +85,10 @@ Journal.Views.PostForm = Backbone.View.extend({
       success: function () {
         Backbone.history.navigate("", {trigger: true})
       }
-      errors: function(){
-        
-      }
     });
+  },
+  
+  newPost: function(event){
+    var formData = $(event.target).serializeJSON()
   }
 })
